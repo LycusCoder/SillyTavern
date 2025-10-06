@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useChatStore } from '../../store/useChatStore';
+import { generateResponse, formatMessagesForGeneration, createUserMessage, createCharacterMessage } from '../../api/chatApi';
 import { Send, Square, Paperclip, Mic, MicOff } from 'lucide-react';
 
 const ChatInput: React.FC = () => {
@@ -32,32 +33,75 @@ const ChatInput: React.FC = () => {
     setMessage('');
     
     // Add user message
-    addMessage({
-      sender: 'user',
-      name: 'You',
-      text: userMessage,
-      is_regenerated: false
-    });
+    const userMsg = createUserMessage(userMessage, current_character.id);
+    addMessage(userMsg);
 
     // Start generating response
     setGenerating(true);
     
     try {
-      // TODO: Implement actual API call to backend
-      // For now, simulate a response
-      setTimeout(() => {
-        addMessage({
-          sender: 'character',
-          name: current_character.name,
-          text: `This is a simulated response from ${current_character.name}. The actual API integration will be implemented to connect with SillyTavern backend.`,
-          is_regenerated: false,
-          character_id: current_character.id
-        });
-        setGenerating(false);
-      }, 1500);
+      console.log('🚀 Generating response for:', current_character.name);
       
-    } catch (error) {
-      console.error('Error generating response:', error);
+      // Get current messages untuk context
+      const { messages } = useChatStore.getState();
+      const contextMessages = formatMessagesForGeneration([...messages, {
+        ...userMsg,
+        id: Date.now().toString(),
+        timestamp: Date.now()
+      }]);
+      
+      // Generate response menggunakan API
+      const response = await generateResponse({
+        messages: contextMessages,
+        character: current_character,
+        settings: model_settings
+      });
+      
+      if (response.success && response.data?.text) {
+        console.log('✅ Generated response:', response.data.text.substring(0, 100) + '...');
+        
+        // Add character response
+        const characterMsg = createCharacterMessage(
+          response.data.text,
+          current_character,
+          {
+            token_count: response.data.usage?.total_tokens,
+            model: response.data.model,
+            finish_reason: response.data.finish_reason
+          }
+        );
+        addMessage(characterMsg);
+      } else {
+        console.error('❌ Failed to generate response:', response.error);
+        
+        // Add error message
+        addMessage(createCharacterMessage(
+          `Sorry, I'm having trouble generating a response right now. ${response.error || 'Please try again.'}`,
+          current_character,
+          { role: 'system' }
+        ));
+      }
+      
+    } catch (error: any) {
+      console.error('❌ Error generating response:', error);
+      
+      // Add error message
+      let errorMessage = 'Sorry, something went wrong. ';
+      
+      if (error.message?.includes('Ollama')) {
+        errorMessage += 'Please make sure Ollama is running and try again.';
+      } else if (error.message?.includes('network')) {
+        errorMessage += 'Please check your connection and try again.';
+      } else {
+        errorMessage += 'Please try again in a moment.';
+      }
+      
+      addMessage(createCharacterMessage(
+        errorMessage,
+        current_character,
+        { role: 'system' }
+      ));
+    } finally {
       setGenerating(false);
     }
   };

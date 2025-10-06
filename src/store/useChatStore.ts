@@ -45,11 +45,11 @@ interface ChatStore extends IChatState {
 const defaultModelSettings: IModelSettings = {
   temperature: 0.7,
   max_tokens: 1024,
-  top_p: 1.0,
+  top_p: 0.9,
   frequency_penalty: 0,
   presence_penalty: 0,
-  model: 'gpt-3.5-turbo',
-  provider: 'openai',
+  model: 'qwen-local',
+  provider: 'ollama',
   streaming: true
 };
 
@@ -58,7 +58,7 @@ const defaultConnection: IAPIConnection = {
   name: 'Local Ollama',
   provider: 'ollama',
   endpoint_url: 'http://localhost:11434',
-  model: 'llama3.2',
+  model: 'qwen-local',
   is_active: true,
   settings: defaultModelSettings
 };

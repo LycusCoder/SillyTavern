@@ -1,16 +1,27 @@
-# 🤖 ChimeraAI - Modern AI Chat Interface
+# 📚 ChimeraDev Documentation
 
-<div align="center">
+**Welcome to the comprehensive documentation untuk ChimeraDev project!**
 
-**Modern, Beautiful, Production-Ready AI Chat Platform**
+## 🎯 Quick Navigation
 
-[![Phase 1](https://img.shields.io/badge/Phase%201-Complete-brightgreen)](./docs/phase1/)
-[![Phase 2](https://img.shields.io/badge/Phase%202-Planning-blue)](./docs/phase2/)
-[![React](https://img.shields.io/badge/React-19.2.0-blue)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue)](https://www.typescriptlang.org/)
-[![Tailwind](https://img.shields.io/badge/Tailwind-3.4.18-blue)](https://tailwindcss.com/)
+| 📖 Document | 📝 Description | 🎯 Audience |
+|-------------|----------------|-------------|
+| **[🚀 Implementation Journey](./IMPLEMENTATION_JOURNEY.md)** | Complete perjalanan development yang baru saja dilakukan | Development Team |
+| **[📡 API Documentation](./API_DOCUMENTATION.md)** | Comprehensive API reference dengan examples | Frontend Developers |
+| **[🛠️ Setup Guide](./SETUP_GUIDE.md)** | Step-by-step installation dan configuration | DevOps, New Developers |
+| **[📊 Current Status](./CURRENT_STATUS.md)** | Real-time status report dan testing results | Project Managers |
 
-</div>
+## 🚀 Quick Start
+
+### For Developers:
+1. **📖 Read**: [Implementation Journey](./IMPLEMENTATION_JOURNEY.md) untuk understand what's been built
+2. **🛠️ Setup**: Follow [Setup Guide](./SETUP_GUIDE.md) untuk get everything running
+3. **📊 Check**: Review [Current Status](./CURRENT_STATUS.md) untuk see what's working
+
+### For API Users:
+1. **📡 Explore**: [API Documentation](./API_DOCUMENTATION.md) untuk all available endpoints
+2. **🧪 Test**: Use examples provided untuk quick API testing
+3. **🔧 Configure**: Modify settings via API atau frontend interface
 
 ## 🎯 Apa itu ChimeraAI?
 

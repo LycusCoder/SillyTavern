@@ -193,7 +193,7 @@ Ketika pertama kali membuka ChimeraAI, Anda akan melihat:
 Active Connection:
 ┌─────────────────────────────────────┐
 │ ● Local Ollama                      │
-│   ollama • llama3.2                │
+│   ollama • qwen-local                │
 └─────────────────────────────────────┘
 
 Temperature                     [0.7]

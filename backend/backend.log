@@ -1,0 +1,9 @@
+
+🚀 ChimeraDev Backend Server Started!
+📡 Server: http://localhost:8001
+🔗 API Base: http://localhost:8001/api
+🎯 Frontend: http://localhost:3001
+✅ Ready to serve ChimeraAI requests!
+
+[2025-10-06T11:39:34.544Z] GET /api/health
+[2025-10-06T11:39:40.725Z] GET /api/characters

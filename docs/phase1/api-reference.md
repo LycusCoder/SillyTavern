@@ -176,7 +176,7 @@ const response = await generateResponse({
     top_p: 1.0,
     frequency_penalty: 0,
     presence_penalty: 0,
-    model: 'llama3.2',
+    model: 'qwen-local',
     provider: 'ollama',
     streaming: true
   }
@@ -202,7 +202,7 @@ GET /api/models/{provider}
 **Example**:
 ```typescript
 const models = await getAvailableModels('ollama');
-// Response: ["llama3.2", "codellama", "mistral", ...]
+// Response: ["qwen-local", "codellama", "mistral", ...]
 ```
 
 #### Connection Testing

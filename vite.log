@@ -1,0 +1,31 @@
+
+  VITE v7.1.9  ready in 193 ms
+
+  ➜  Local:   http://localhost:3001/
+  ➜  Network: use --host to expose
+Sending Request to the Target: GET /api/characters
+proxy error Error: connect ECONNREFUSED 127.0.0.1:8000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 8000
+}
+11:38:11 AM [vite] http proxy error: /api/characters
+Error: connect ECONNREFUSED 127.0.0.1:8000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16)
+Sending Request to the Target: GET /api/characters
+proxy error Error: connect ECONNREFUSED 127.0.0.1:8000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 8000
+}
+11:38:16 AM [vite] http proxy error: /api/characters
+Error: connect ECONNREFUSED 127.0.0.1:8000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16)
+11:38:54 AM [vite] vite.config.ts changed, restarting server...
+11:38:54 AM [vite] server restarted.
