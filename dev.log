@@ -1,0 +1,8 @@
+yarn run v1.22.22
+$ vite
+12:05:21 AM [vite] (client) Re-optimizing dependencies because lockfile has changed
+
+  VITE v7.1.9  ready in 235 ms
+
+  ➜  Local:   http://localhost:3001/
+  ➜  Network: use --host to expose
